@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Rooms available List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
+	rel="stylesheet" media="screen" />
+	<link rel="stylesheet" type="text/css"  th:href="@{|/css/style.css|}"/>
+</head>
+<body>
+	<div th:include="fragments/header"></div>
+	<div class="container">
+		<div class="page-header">
+			<h1>Available Rooms</h1>
+		</div>				
+		
+		<table class="table table-bordered table-condensed">
+		<thead>
+			<tr>
+				<th><span class="glyphicon glyphicon-calendar"> Check in  </span> <span th:text="${startDate}"></span> </th>
+				<th><span class="glyphicon glyphicon-calendar"> Check out </span> <span th:text="${endDate}"></span>  </th>
+			</tr>
+		</thead>
+		<tbody>
+		
+			
+		</tbody>
+		</table>
+				
+		
+		<div class="row">
+					<div class="col-md-12 animate-box">
+						<div class="owl-carousel">
+
+
+
+
+						<div class="item" th:each="hotel, hstat : ${hotels}"
+								th:unless="${hstat.index > 2}">
+								<div class="hotel-entry col-md-6">
+									
+									
+									<figure>
+									<img width="100%" height="235px"
+										th:each="img, istat : ${hotel.images}"
+										th:src="${'/static/' + img.value.path}" class="img-rounded"
+										alt="Hotel photo" th:unless="${istat.index > 0}" />
+								</figure>
+								
+									<div class="desc">
+										<div class="starshome ">
+										<h3>
+											<span th:text="${hotel.name}"></span>
+										</h3>
+										<p class="star">
+											<span th:each="i : ${#numbers.sequence(1, hotel.rating)}"><i
+												class="icon-star-full"></i> </span>
+												</p>
+										</div>
+										
+										
+										<span th:text="${hotel.address}" class="place">New York, USA</span>
+										<p th:text="${hotel.description}" >A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+										
+										<div class="col-md-6">
+										
+										<div class="col-md-6">
+										<p class="price"><span th:text="${hotel.leadingPrice}"   > $120</span><small> /night</small></p>
+										</div>
+										
+										<div class="col-md-6">
+										<a class="seehotel btn btn-default" th:href="@{|/hotels/${hotel.id}|}">See more info</a>
+										</div>
+										
+										</div>
+										
+									
+									</div>
+								</div>
+							</div>
+							
+							<hr> </hr>
+							
+						</div>
+					</div>
+				</div>
+				
+		
+		
+	</div>
+	
+	
+	<div th:include="fragments/footer"></div>
+	
+</body>
+</html>
+

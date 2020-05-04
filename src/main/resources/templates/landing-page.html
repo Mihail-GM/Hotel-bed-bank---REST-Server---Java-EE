@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Homepage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
+	rel="stylesheet" media="screen" />
+	
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/general.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/animate.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/icomoon.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/bootstrap.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/magnific-popup.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/flexslider.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/owl.carousel.min.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/owl.theme.default.min.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/bootstrap-datepicker.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/fonts/flaticon/font/flaticon.css|}"/>
+<link rel="stylesheet" type="text/css"  th:href="@{|/css/style.css|}"/>
+
+
+	<script th:src="@{|/js/modernizr-2.6.2.min.js|}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	
+</head>
+<body>
+	<div th:include="fragments/header"></div>
+
+	
+
+		<div class="colorlib-loader"></div>
+
+		<aside id="colorlib-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(/static/img_bg_1.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>HotelCho - Find your holiday</h1>
+				   					<h3>Amazing Maldives Tour</h3>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url(/static/img_bg_2.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h2>HotelCho - Find your holiday</h2>
+				   					<h3>From Greece to Spain</h3>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url(/static/img_bg_5.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluids">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h2>HotelCho - Find your holiday</h2>
+				   					<h3>Our Travel Agency</h3>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url(/static/img_bg_4.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h2>HotelCho - Find your holiday</h2>
+				   					<h3>Best Trip Ever</h3>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>	   	
+			  	</ul>
+		  	</div>
+		</aside>
+		
+		<div id="colorlib-reservation">
+			<!-- <div class="container"> -->
+				<div class="row">
+					<div class="search-wrap">
+						<div class="container">
+							<ul class="nav nav-tabs">
+								
+								<li class="active"><a data-toggle="tab" href="#hotel"><i class="flaticon-resort"></i> Hotel</a></li>
+								
+							</ul>
+						</div>
+						<div class="tab-content">
+							
+				         
+				         <div id="hotel" class="tab-pane fade in active">
+						      <form method="post" class="colorlib-form" th:action="@{|/results/results|}" th:object="${booking}" method="post" >
+				              	<div class="row">
+				              	 <div class="col-md-2">
+				              	 	<div class="booknow">
+				              	 		<h2>Book Now</h2>
+					              	 	<span>Best Price Online</span>
+				              	 	</div>
+				              	 </div>
+				                <div class="col-md-3">
+				                  <div class="form-group">
+				                    <label for="date">Check-in:</label>
+				                    <div class="form-field">
+				                      <i class="icon icon-calendar2"></i>
+				                      <input type="text" id="date" class="form-control date" placeholder="Check-in date" th:field="*{begin_date}">
+				                    </div>
+				                  </div>
+				                </div>
+				                <div class="col-md-3">
+				                  <div class="form-group">
+				                    <label for="date">Check-out:</label>
+				                    <div class="form-field">
+				                      <i class="icon icon-calendar2"></i>
+				                      <input type="text" id="date" class="form-control date" placeholder="Check-out date" th:field="*{end_date}">
+				                    </div>
+				                  </div>
+				                </div>
+				                <div class="col-md-2">
+				                  <div class="form-group">
+				                    <label for="guests">Guest</label>
+				                    <div class="form-field">
+				                      <i class="icon icon-arrow-down3"></i>
+				                      <select name="people" id="people" class="form-control">
+				                        <option value="#">1</option>
+				                        <option value="#">2</option>
+				                        <option value="#">3</option>
+				                        <option value="#">4</option>
+				                        <option value="#">5+</option>
+				                      </select>
+				                    </div>
+				                  </div>
+				                </div>
+				                <div class="col-md-2">
+				                  <input type="submit" name="submit" id="submit" value="Find Hotel" class="btn btn-primary btn-block">
+				                </div>
+				              </div>
+				            </form>
+				            
+				            		<div class="searchbar">
+			<form class="navbar-form" role="search" action="/hotels/search" method="get">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search hotel by name" name="searchString">
+				</div>
+				<button type="submit" class="btn btn-default">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</form>
+		</div>
+						   </div>
+
+
+						   
+
+			         </div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="colorlib-services">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-3 animate-box text-center aside-stretch">
+						<div class="services">
+							<span class="icon">
+								<i class="flaticon-around"></i>
+							</span>
+							<h3>Amazing Travel</h3>
+							<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+						</div>
+					</div>
+					<div class="col-md-3 animate-box text-center">
+						<div class="services">
+							<span class="icon">
+								<i class="flaticon-boat"></i>
+							</span>
+							<h3>Our Cruises</h3>
+							<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+						</div>
+					</div>
+					<div class="col-md-3 animate-box text-center">
+						<div class="services">
+							<span class="icon">
+								<i class="flaticon-car"></i>
+							</span>
+							<h3>Book Your Trip</h3>
+							<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+						</div>
+					</div>
+					<div class="col-md-3 animate-box text-center">
+						<div class="services">
+							<span class="icon">
+								<i class="flaticon-postcard"></i>
+							</span>
+							<h3>Nice Support</h3>
+							<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+<div class="container">	
+
+	
+
+		
+		<hr/>
+
+
+<div id="colorlib-hotel">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+						<h2>Recommended Hotels</h2>
+						<p></p>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12 animate-box">
+						<div class="owl-carousel">
+
+
+
+
+						<div class="item" th:each="hotel, hstat : ${hotels}"
+								th:unless="${hstat.index > 2}">
+								<div class="hotel-entry">
+									
+									
+									<figure>
+									<img width="350px" height="235px"
+										th:each="img, istat : ${hotel.images}"
+										th:src="${'/static/' + img.value.path}" class="img-rounded"
+										alt="Hotel photo" th:unless="${istat.index > 0}" />
+								</figure>
+								
+									<div class="desc">
+										<div class="starshome ">
+										<h3>
+											<span th:text="${hotel.name}"></span>
+										</h3>
+										<p class="star">
+											<span th:each="i : ${#numbers.sequence(1, hotel.rating)}"><i
+												class="icon-star-full"></i> </span>
+												</p>
+										</div>
+										
+										
+										<span class="place">New York, USA</span>
+										<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+										
+										<div class="col-md-12">
+										
+										<div class="col-md-6">
+										<p class="price"><span>$120</span><small> /night</small></p>
+										</div>
+										
+										<div class="col-md-6">
+										<a class="seehotel btn btn-default" th:href="@{|/hotels/${hotel.id}|}">See more info</a>
+										</div>
+										
+										</div>
+										
+									
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				
+				
+							
+			</div>
+		</div>
+	
+
+
+</div>
+
+<div th:include="fragments/footer"></div>
+
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script th:src="@{|/js/jquery.min.js|}"></script>
+	<!-- jQuery Easing -->
+	<script th:src="@{|/js/jquery.easing.1.3.js|}"></script>
+	<!-- Bootstrap -->
+	<script th:src="@{|/js/bootstrap.min.js|}"></script>
+	<!-- Waypoints -->
+	<script th:src="@{|/js/jquery.waypoints.min.js|}"></script>
+	<!-- Flexslider -->
+	<script th:src="@{|/js/jquery.flexslider-min.js|}"></script>
+	<!-- Owl carousel -->
+	<script th:src="@{|/js/owl.carousel.min.js|}"></script>
+	<!-- Magnific Popup -->
+	<script th:src="@{|/js/jquery.magnific-popup.min.js|}"></script>
+	<script th:src="@{|/js/magnific-popup-options.js|}"></script>
+	
+
+	<!-- Date Picker -->
+	<script th:src="@{|/js/bootstrap-datepicker.js|}"></script>
+	<!-- Stellar Parallax -->
+	<script th:src="@{|/js/jquery.stellar.min.js|}"></script>
+	<!-- Main -->
+	<script th:src="@{|/js/main.js|}"></script>
+
+
+
+</body>
+</html>
+

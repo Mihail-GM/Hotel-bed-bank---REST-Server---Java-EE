@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen"/>    
+</head>
+<body>
+	<div class="container">
+	<h1>User Form</h1>
+		<div th:fragment="userform(url)">
+	    	<form action="#" th:action="${url}" th:object="${user}" method="post">
+	    		<div>
+			    	<input type="hidden" th:field="*{id}" />		        	
+		        	<p><label>First name</label><input class="form-control" placeholder="Firstname" type="text" th:field="*{firstname}" /></p>
+		        	<p><label>Last name</label><input class="form-control" placeholder="Lastname" type="text" th:field="*{lastname}" /></p>
+		        	<p><label>Mobile</label>
+<input type="number" id="number"  required="required" data-validate-minmax="1,10000"  class="form-control" placeholder="Mobile"  th:field="*{mobile}" /></p>
+		        	<p><label>Username</label><input  required="required" class="form-control" placeholder="Username" type="text" th:field="*{username}" /></p>
+		        	<p><label>E-mail</label><input  required="required" class="form-control" placeholder="Email" type="email" th:field="*{email}" /></p>
+		        	<p><label>Password</label><input type="password"  required="required" class="form-control" placeholder=""  th:field="*{password}" /></p>	
+		        	<span sec:authorize="hasAnyRole('ADMIN')">
+		        	<label>Role</label>
+					<select class="form-control" th:field="*{authority}">
+						<option th:each="a : ${authorities}" th:text="${a.role}" th:value="${a.id}"></option>
+					</select>	
+					</span>				        			        
+	        	</div>
+	        	<br>
+	    	    <p><input class="btn btn-primary" type="submit" value="Submit" /> <input class="btn btn-default" type="reset" value="Reset" /></p>
+		    </form>
+	    </div>
+    </div>
+
+	
+</body>
+</html>
+
